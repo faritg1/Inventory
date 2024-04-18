@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Domain.Entities;
 
-namespace Persistence.Entities;
+namespace Domain.Entities;
 
-public partial class Category
+public partial class Category : BaseEntity
 {
-    public int Id { get; set; }
-
     public string Name { get; set; }
 
     public DateTime CreatedAt { get; set; }
