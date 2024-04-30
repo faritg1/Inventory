@@ -7,8 +7,8 @@ namespace Domain.Interfaces
 {
     public interface IUnitOfWork
     {
-        ICategory Category { get; }
-        IProduct Product { get; }
+        ICategory Categories { get; }
+        IProduct Products { get; }
         Task<int> SaveAsync();
     }
 }

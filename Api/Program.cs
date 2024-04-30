@@ -25,7 +25,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-using (var scope = app.Services.CreateScope())
+/* using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var loggerFactory = services.GetRequiredService<ILoggerFactory>();
@@ -40,7 +40,7 @@ using (var scope = app.Services.CreateScope())
         var _logger = loggerFactory.CreateLogger<Program>();
         _logger.LogError(ex, "Ocurrio un error durante la migracion");
     }
-}
+} */ // Se usa para la creacion de la estrucrura con Dbfirts
 
 app.UseHttpsRedirection();
 
