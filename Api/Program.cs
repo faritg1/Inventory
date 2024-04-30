@@ -1,3 +1,6 @@
+using System.Reflection;
+using Api.Extensions;
+using AspNetCoreRateLimit;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Data;
 
@@ -9,6 +12,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.ConfigureCors();
+builder.Services.AddApplicationServices();
+builder.Services.ConfigureRateLimiting();
+builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
 
 builder.Services.AddDbContext<InventoryContext>(options =>
 {
@@ -41,6 +49,9 @@ if (app.Environment.IsDevelopment())
         _logger.LogError(ex, "Ocurrio un error durante la migracion");
     }
 } */ // Se usa para la creacion de la estrucrura con Dbfirts
+
+app.UseIpRateLimiting();
+app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 
