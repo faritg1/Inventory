@@ -3,10 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/post.js" defer></script>
     <script src="js/main.js" defer></script>
     <title>Inventory</title>
 </head>
 <body>
+    <h1 class="text-center">Agrega un nuevo dato</h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <form  method="post">
+                    <label class="form-label" for="name">Name</label>
+                    <br>
+                    <input class="form-control" type="text" name="name" id="nameRegister" required>
+                    <br>
+                    <br>
+                    <label class="form-label" for="create">CreatedAt</label>
+                    <br>
+                    <input class="form-control" type="date" name="create" id="createRegister" required>
+                    <br>
+                    <br>
 
+                    <label class="form-label" for="update">UpdatedAt</label>
+                    <br>
+                    <input class="form-control" type="date" name="update" id="updateRegister" required>
+
+                    <input type="hidden" name="method" value="post">
+                    <button type="button" class="btn btn-primary mt-2" onclick="performRegister()">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
