@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/Put.js" defer></script>
+    <script src="js/main.js" defer></script>
+
+    <title>Put Category</title>
+</head>
+<body>
+    <h1 class="text-center">Actualiza los datos</h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <form  method="put">
+                    <label class="form-label" for="name">Name</label>
+                    <br>
+                    <input class="form-control" type="text" name="name" id="name" required>
+                    
+                    <br>
+                    <br>
+                    <label class="form-label" for="create">CreatedAt</label>
+                    <br>
+                    <input class="form-control" type="date" name="create" id="create" required>
+                    <br>
+                    <br>
+
+                    <label class="form-label" for="update">UpdatedAt</label>
+                    <br>
+                    <input class="form-control" type="date" name="update" id="update" required>
+
+                    <input type="hidden" name="method" value="put">
+                    <br>
+                    <button type="button" class="btn btn-primary mt-2" onclick="update()">
+                        <a href="">Guardar datos actualizados</a>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

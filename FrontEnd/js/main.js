@@ -1,4 +1,4 @@
-// Función para obtener datos de la base de datos
+/* // Función para obtener datos de la base de datos
 const getDataFromDatabase = async () => {
     try {
         // Realizar la solicitud GET al servidor intermedio que maneja las solicitudes a la base de datos
@@ -39,4 +39,10 @@ const displayData = async () => {
 };
 
 // Llamar a la función para mostrar los datos
-displayData();
+displayData(); */
+/* import { registerUpdate } from "./Put.js";
+
+let storageId = localStorage.getItem("ID");
+console.log(storageId !== null ? "id: " + storageId : "Nda"); 
+
+registerUpdate(storageId); */
