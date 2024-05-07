@@ -12,12 +12,12 @@ export const Get = async(url, options) => {
                     <td>${value.createdAt}</td>
                     <td>${value.updatedAt} </td>
                     <td>
-                        <button type="button" class="btn" idUp=${value.id} >
+                        <button type="button" class="btn btn-success" idUp=${value.id} >
                             <a>Actualizar</a>
                         </button>
                     </td>
                     <td>
-                        <button type="button" class="btn" idUp=${value.id}>Eliminar</button>
+                        <button type="button" class="btn btn-danger" idUp=${value.id}>Eliminar</button>
                     </td>
                 </tr>
             `)
