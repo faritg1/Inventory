@@ -1,33 +1,17 @@
-async function update() {
-    const name = document.getElementById('name').value;
-    const create = document.getElementById('create').value;
-    const update = document.getElementById('update').value;
-    let code = localStorage.getItem("ID");
+async function handleUpdate() {
+    let storageId = localStorage.getItem("ID");
+    const nameUp = document.getElementById('nameUp').value;
+    const createUp = document.getElementById('createUp').value;
+    const updateUp = document.getElementById('updateUp').value;
 
-    
-    console.log(code, name, create, update);
+    const url = `http://localhost:5087/Category/${storageId}`;
 
-    const registrationResult = await registerUpdate(code, name, create, update);
-
-    // Verificar el resultado del registro y realizar acciones adicionales si es necesario
-    if (registrationResult) {
-        console.log("Registro exitoso:", registrationResult);
-        // Redirigir a la página de inicio de sesión después del registro exitoso
-    } else {
-        console.log("Error al registrar usuario");
-        // Mostrar un mensaje de error o realizar acciones adicionales si es necesario
-    }
-}
-
-async function registerUpdate(code,name, create, update) {
-    const url = `http://localhost:5087/Category/${code}`;
     let newUser = {
-        code: code,
-        name: name,
-        create: create,
-        update: update
+        name: nameUp,
+        create: createUp,
+        update: updateUp
     };
-
+    console.log(newUser);
     const options = {
         method: 'PUT',
         headers: {
@@ -35,13 +19,11 @@ async function registerUpdate(code,name, create, update) {
         },
         body: JSON.stringify(newUser)
     };
-
     try {
         const response = await fetch(url, options);
         const result = await response.json();
-        return result;
+        return result
     } catch (error) {
-        console.error(error);
-        return null;
+        return (error);
     }
-}
+} 

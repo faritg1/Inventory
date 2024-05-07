@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/Put.js" defer></script>
-    <script src="js/main.js" defer></script>
-
     <title>Put Category</title>
 </head>
 <body>
@@ -16,24 +14,24 @@
                 <form  method="put">
                     <label class="form-label" for="name">Name</label>
                     <br>
-                    <input class="form-control" type="text" name="name" id="name" required>
+                    <input class="form-control" type="text" name="name" id="nameUp" required>
                     
                     <br>
                     <br>
                     <label class="form-label" for="create">CreatedAt</label>
                     <br>
-                    <input class="form-control" type="date" name="create" id="create" required>
+                    <input class="form-control" type="date" name="create" id="createUp" required>
                     <br>
                     <br>
 
                     <label class="form-label" for="update">UpdatedAt</label>
                     <br>
-                    <input class="form-control" type="date" name="update" id="update" required>
+                    <input class="form-control" type="date" name="update" id="updateUp" required>
 
                     <input type="hidden" name="method" value="put">
                     <br>
-                    <button type="button" class="btn btn-primary mt-2" onclick="update()">
-                        <a href="">Guardar datos actualizados</a>
+                    <button type="button" class="btn" onclick="handleUpdate()">
+                        Guardar datos actualizados
                     </button>
                 </form>
             </div>

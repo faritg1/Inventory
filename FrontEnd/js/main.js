@@ -40,9 +40,9 @@ const displayData = async () => {
 
 // Llamar a la función para mostrar los datos
 displayData(); */
-/* import { registerUpdate } from "./Put.js";
+/* import { handleUpdate } from "./Put.js";
 
 let storageId = localStorage.getItem("ID");
 console.log(storageId !== null ? "id: " + storageId : "Nda"); 
 
-registerUpdate(storageId); */
+handleUpdate(storageId); */
