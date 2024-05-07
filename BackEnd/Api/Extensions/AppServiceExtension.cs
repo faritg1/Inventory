@@ -41,7 +41,7 @@ public static class AppServiceExtension
                 {
                     Endpoint = "*",  // Si quiere usar todos ponga *
                     Period = "10s", // Periodo de tiempo para hacer peticiones
-                    Limit = 2         // Numero de peticiones durante el periodo de tiempo
+                    Limit = 10         // Numero de peticiones durante el periodo de tiempo
                 }
             };
         });

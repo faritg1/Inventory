@@ -1,4 +1,4 @@
-async function performRegister() {
+const Post = async() => {
     const name = document.getElementById('nameRegister').value;
     const create = document.getElementById('createRegister').value;
     const update = document.getElementById('updateRegister').value;

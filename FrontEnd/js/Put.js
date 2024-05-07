@@ -1,4 +1,4 @@
-async function handleUpdate() {
+const Update = async() => {
     let storageId = localStorage.getItem("ID");
     const nameUp = document.getElementById('nameUp').value;
     const createUp = document.getElementById('createUp').value;
