@@ -23,11 +23,11 @@ public class CategoryController : BaseController
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<IEnumerable<CategoryDto>>> Get()
+    public async Task<ActionResult<IEnumerable<CategoryGetFullDto>>> Get()
     {
         var con = await _unitOfWork.Categories.GetAllAsync();
 
-        return _mapper.Map<List<CategoryDto>>(con);
+        return _mapper.Map<List<CategoryGetFullDto>>(con);
     }
 
     [HttpGet("{id}")]

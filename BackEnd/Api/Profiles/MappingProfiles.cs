@@ -12,6 +12,7 @@ namespace Api.Profiles
     {
         public MappingProfiles(){
             CreateMap<Category, CategoryDto>().ReverseMap();
+            CreateMap<Category, CategoryGetFullDto>().ReverseMap();
             CreateMap<Product, ProductDto>().ReverseMap();
         }
     }

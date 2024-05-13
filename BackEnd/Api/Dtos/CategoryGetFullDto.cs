@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 
 namespace Api.Dtos
 {
-    public class CategoryDto
+    public class CategoryGetFullDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }
