@@ -18,6 +18,7 @@ namespace Persistence.Data.Configuration
 
             entity.Property(e => e.Id).HasColumnType("int(11)");
             entity.Property(e => e.CreatedAt)
+                .ValueGeneratedOnAdd()
                 .HasDefaultValueSql("current_timestamp()")
                 .HasColumnType("datetime");
             entity.Property(e => e.Name)

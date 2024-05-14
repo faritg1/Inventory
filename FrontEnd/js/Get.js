@@ -13,7 +13,7 @@ export const Get = async(url, options) => {
                     <td>${value.updatedAt} </td>
                     <td>
                         <button type="button" class="btn btn-success" idUp=${value.id} >
-                            <a>Actualizar</a>
+                            Actualizar
                         </button>
                     </td>
                     <td>
