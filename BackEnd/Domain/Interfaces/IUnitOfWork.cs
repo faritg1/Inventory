@@ -9,6 +9,7 @@ namespace Domain.Interfaces
     {
         ICategory Categories { get; }
         IProduct Products { get; }
+        IEmail Emails { get; }
         Task<int> SaveAsync();
     }
 }

@@ -1,5 +1,7 @@
 using System.Reflection;
+using Api.Dtos;
 using Api.Extensions;
+using Api.Services;
 using AspNetCoreRateLimit;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Data;
@@ -24,6 +26,9 @@ builder.Services.AddDbContext<InventoryContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
+builder.Services.Configure<EmailDto>(builder.Configuration.GetSection("Email"));
+builder.Services.AddTransient<IEmailService, EmailService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -33,27 +38,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-/* using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    var loggerFactory = services.GetRequiredService<ILoggerFactory>();
-
-    try
-    {
-        var context = services.GetRequiredService<InventoryContext>();
-        await context.Database.MigrateAsync();
-    }
-    catch (Exception ex)
-    {
-        var _logger = loggerFactory.CreateLogger<Program>();
-        _logger.LogError(ex, "Ocurrio un error durante la migracion");
-    }
-} */ // Se usa para la creacion de la estrucrura con Dbfirts
-
 app.UseIpRateLimiting();
 app.UseCors("CorsPolicy");
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection(); Comentamos esta parte para prevenir problemas con HTTPS
 
 app.UseAuthorization();
 

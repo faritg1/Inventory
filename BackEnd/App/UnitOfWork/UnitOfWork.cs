@@ -18,6 +18,7 @@ namespace App.UnitOfWork
 
         private ICategory _categories;
         private IProduct _products;
+        private IEmail _emails;
 
         public ICategory Categories 
         {
@@ -40,6 +41,17 @@ namespace App.UnitOfWork
                     _products = new ProductRepository(_context);
                 }
                 return _products;
+            }
+        }
+        public IEmail Emails 
+        {
+        get
+            {
+                if (_emails == null)
+                {
+                    _emails = new EmailRepository(_context);
+                }
+                return _emails;
             }
         }
 
