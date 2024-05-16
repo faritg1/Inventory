@@ -17,9 +17,9 @@ public class EmailController : BaseController
         }
 
         [HttpPost]
-        public IActionResult SendEmail(EmailDto request)
+        public async Task<ActionResult> SendEmail(EmailDto request)
         {
-            _emailService.SendEmail(request);
+            await _emailService.SendEmail(request);
             return Ok();
         }
 }

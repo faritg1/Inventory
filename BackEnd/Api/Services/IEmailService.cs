@@ -8,6 +8,6 @@ namespace Api.Services
 {
     public interface IEmailService
     {
-        void SendEmail(EmailDto model);
+        Task<string> SendEmail(EmailDto model);
     }
 }
