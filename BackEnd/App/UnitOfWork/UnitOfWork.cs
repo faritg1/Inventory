@@ -19,6 +19,8 @@ namespace App.UnitOfWork
         private ICategory _categories;
         private IProduct _products;
         private IEmail _emails;
+        private IUser _users;
+        private IRol _roles;
 
         public ICategory Categories 
         {
@@ -52,6 +54,28 @@ namespace App.UnitOfWork
                     _emails = new EmailRepository(_context);
                 }
                 return _emails;
+            }
+        }
+        public IUser Users 
+        {
+        get
+            {
+                if (_users == null)
+                {
+                    _users = new UserRepository(_context);
+                }
+                return _users;
+            }
+        }
+        public IRol Roles 
+        {
+        get
+            {
+                if (_roles == null)
+                {
+                    _roles = new RolRepository(_context);
+                }
+                return _roles;
             }
         }
 

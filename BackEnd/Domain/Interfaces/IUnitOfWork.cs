@@ -10,6 +10,8 @@ namespace Domain.Interfaces
         ICategory Categories { get; }
         IProduct Products { get; }
         IEmail Emails { get; }
+        IRol Roles {get;}
+        IUser Users {get;}
         Task<int> SaveAsync();
     }
 }

@@ -22,3 +22,6 @@ CREATE TABLE IF NOT EXISTS `Product` (
     CONSTRAINT PkProduct PRIMARY KEY (Id),
     CONSTRAINT FkCategory FOREIGN KEY (CategoryId) REFERENCES Category(Id)
 );
+INSERT INTO `Inventory`.`rol` (`rolName`) VALUES
+('Administrator'),
+('Employee');

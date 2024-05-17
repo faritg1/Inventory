@@ -19,6 +19,7 @@ builder.Services.ConfigureCors();
 builder.Services.AddApplicationServices();
 builder.Services.ConfigureRateLimiting();
 builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
+builder.Services.AddJwt(builder.Configuration);
 
 builder.Services.AddDbContext<InventoryContext>(options =>
 {
@@ -30,6 +31,7 @@ builder.Services.Configure<EmailDto>(builder.Configuration.GetSection("Email"));
 builder.Services.AddTransient<IEmailService, EmailService>();
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
