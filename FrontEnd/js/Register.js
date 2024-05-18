@@ -1,4 +1,4 @@
-const Post = async() => {
+const Register = async() => {
     const email = document.getElementById('email').value;
     const user = document.getElementById('user').value;
     const pass = document.getElementById('pass').value;
@@ -9,24 +9,23 @@ const Post = async() => {
                 username: user,
                 password: pass,
             };
-            console.log(newUser);
             const url = "http://localhost:5087/User/register";
             const options = {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(newUser)
             };
+            console.log(options);
             const response = await fetch(url, options);
-            const result = await response.json();
+            const result = await response.text();
             console.log(result);
-            //return window.location.href = "./Get.html";
+            return window.location.href = "./Login.html";
         } catch (error) {
-            return "Hay un error" + error;
+            console.log("Hay un error" + error);
         }
     }else{
         alert("Hay un campo vacio!!!");
-        console.log("malllllll");
     }
 } 

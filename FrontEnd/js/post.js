@@ -1,6 +1,6 @@
 const Post = async() => {
     const name = document.getElementById('nameRegister').value;
-    if(!((name === null) || (name === undefined) || (name === ""))){
+    if(!((name === ""))){
         try {
             let newUser = {
                 name: name,
