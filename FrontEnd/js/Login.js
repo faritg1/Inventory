@@ -5,14 +5,13 @@ function LoginOk() {
     performLogin(username, password);
 }
 
+
 async function login(username, password) {
-    const url = "http://localhost:5271/User/login";
+    const url = "http://localhost:5087/User/token";
     let update = {
         username: username,
         password: password,
-
     };
-    console.log(update)
     const options = {
         method: 'POST',
         headers: {
@@ -20,29 +19,48 @@ async function login(username, password) {
         },
         body: JSON.stringify(update)
     };
-    console.log(options)
     try {
         const response = await fetch(url, options);
-        const result = await response.text();
-        return (result);
+        if (!response.ok) {
+            throw new Error('Error en la solicitud de inicio de sesión');
+        }
+        const result = await response.json(); // Cambiado a response.json() para que coincida con el formato esperado
+        return result;
     } catch (error) {
-        console.error(error);
+        console.error('Error durante el inicio de sesión:', error);
         return null;
     }
-
 }
-async function performLogin(usernameLogin, passwordLogin) {
-    const token = await login(usernameLogin, passwordLogin);
-    console.log(token);
 
-    const arrayT = token.split('.');
-    const tokenPay = JSON.parse(atob(arrayT[1]));
-    console.log(tokenPay);
-    let dateToken = Math.floor(new Date().getTime() / 1000) >= tokenPay?.sub
-    console.log(dateToken);
-    if (dateToken === false) {
-        console.log("Login exitoso. Token:");
-        window.location.href = "./Index.html";
+async function performLogin(usernameLogin, passwordLogin) {
+    const result = await login(usernameLogin, passwordLogin);
+    
+    if (!result || !result.token) {
+        console.error('Inicio de sesión fallido o token no recibido');
+        return;
     }
     
+    const token = result.token;
+    localStorage.setItem('token', token);
+
+    // Dividir el token en sus partes
+    const arrayT = token.split('.');
+    if (arrayT.length !== 3) {
+        console.error('Token JWT inválido');
+        return;
+    }
+    
+    // Decodificar la carga útil (payload) del token
+    const tokenPay = JSON.parse(atob(arrayT[1]));
+    
+    // Validar si el token ha expirado
+    const currentTimestamp = Math.floor(Date.now() / 1000);
+    const isTokenExpired = currentTimestamp >= tokenPay.exp;
+    
+    if (!isTokenExpired) {
+        console.log("Login exitoso. Token:");
+        window.location.href = "./Index.html";
+    } else {
+        console.error('El token ha expirado');
+    }
 }

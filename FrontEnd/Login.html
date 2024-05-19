@@ -11,18 +11,13 @@
 
     <div class="container">
         <form method="post">
-            <div class="form-group">
                 <label for="user">Username</label>
                 <input type="text" class="form-control" name="user" id="user" placeholder="Username">
-            </div>
-            <div class="form-group">
+
                 <label for="pass">Password</label>
                 <input type="password" class="form-control" name="pass" id="pass" placeholder="Password">
-            </div>
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
+
+                <input type="hidden" name="method" value="post">
             <button type="button" class="btn btn-primary" onclick="LoginOk()">Iniciar Sesion</button>
         </form>
     </div>
