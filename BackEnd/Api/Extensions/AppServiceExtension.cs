@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Api.Dtos;
 using Api.Helpers;
 using Api.Services;
 using App.UnitOfWork;
@@ -30,6 +31,7 @@ public static class AppServiceExtension
     {
         services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
         services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IEmailService, EmailService>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
     } 
 
@@ -83,5 +85,9 @@ public static class AppServiceExtension
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Key"]))
                 };
             });
+    }
+
+    public static void AddEmail(this IServiceCollection services, IConfiguration configuration){
+        services.Configure<EmailDto>(configuration.GetSection("Email"));
     }
 }
